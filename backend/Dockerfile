@@ -8,7 +8,7 @@ RUN apk add --no-cache python3 make g++
 
 FROM base AS dependencies
 COPY package*.json ./
-RUN npm ci --only=production
+RUN npm install --omit=dev
 
 FROM base AS release
 ENV NODE_ENV=production
